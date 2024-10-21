@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultat</title>
+</head>
+<body>
+    <h1>Ditt resultat</h1>
+    <p id="result"></p>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const resultId = urlParams.get('id');
+        
+        // Gjør et API-anrop for å hente resultatet basert på resultId
+        fetch(`https://your-api.com/results/${resultId}`)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('result').textContent = data;
+            });
+    </script>
+</body>
+</html>
+
